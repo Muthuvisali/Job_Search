@@ -82,6 +82,51 @@ Return ONLY the JSON, no markdown.`
   }
 }
 
+export async function tailorResumeForAts(jd, resumeText, missingKeywords, llmClient, forceToSkills = false) {
+  const forceNote = forceToSkills
+    ? 'Since some keywords cannot be naturally placed in experience bullets, append them to a "Tools & Technologies" line inside the Skills section.'
+    : 'Only add keywords that honestly reflect the candidate\'s background. If a keyword cannot be truthfully placed, skip it.'
+
+  const prompt = `You are a professional resume writer specializing in ATS optimization.
+
+Edit the resume to incorporate the missing keywords. Follow ALL rules exactly:
+
+RULES:
+1. ONE PAGE — hard maximum of 550 words. Count carefully before returning.
+2. Section order: Name & Contact → SUMMARY → EXPERIENCE → SKILLS → EDUCATION (all headers in ALL CAPS)
+3. 3–4 bullet points per role maximum. Each bullet begins with a strong past-tense action verb.
+4. ${forceNote}
+5. Mirror the exact keyword strings from the JD — ATS systems match exact text.
+6. Keep all dates, company names, job titles, schools, and degrees word-for-word.
+7. Do NOT fabricate experience, metrics, certifications, or skills.
+8. Plain text output only — no asterisks, no markdown symbols, no decorative lines.
+
+MISSING KEYWORDS TO INCORPORATE:
+${missingKeywords.slice(0, 20).join(', ')}
+
+JOB DESCRIPTION (context):
+${jd.slice(0, 1500)}
+
+ORIGINAL RESUME:
+${resumeText.slice(0, 2500)}
+
+Return the complete edited resume starting with the candidate's name. Nothing else.`
+
+  return llmClient.call(prompt, 1800)
+}
+
+export async function explainAtsFailure(jd, resumeText, missingKeywords, llmClient) {
+  const prompt = `A resume optimizer could not reach 85% ATS keyword match for a job even after editing.
+
+Keywords that could not be integrated: ${missingKeywords.slice(0, 15).join(', ')}
+
+Job description (first 600 chars): ${jd.slice(0, 600)}
+
+In 2–3 sentences, explain specifically WHY these keywords cannot be naturally added and what the core experience gap is. Be direct and honest.`
+
+  return llmClient.call(prompt, 300)
+}
+
 export async function generateSkillGapSummary(skillGapJobs, llmClient) {
   const jobSummaries = skillGapJobs
     .slice(0, 30)
