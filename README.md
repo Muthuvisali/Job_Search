@@ -144,3 +144,17 @@ create table events (
 - TF-IDF works surprisingly well as a similarity gate when real embeddings are not available.
 - LLM tailoring hallucinates if you do not constrain it. Strict prompting ("do not add skills the candidate does not have") is essential.
 - `sessionStorage` is the right privacy call for sensitive data. Users trust apps more when they can verify zero content leaves their browser.
+
+---
+
+## Claude plugin: Job Application Master
+
+This repo also ships a Claude Code / Cowork plugin that automates the full pipeline with
+connectors (Firecrawl, Google Sheets/Docs/Drive, Gmail/Outlook, Google/Outlook Calendar,
+Calendly): scrape jobs → score fit → tailor resumes for 75+ matches → draft recruiter outreach.
+See [`plugins/job-application-master`](plugins/job-application-master/README.md).
+
+```bash
+/plugin marketplace add muthuvisali/job_search
+/plugin install job-application-master@job-search
+```

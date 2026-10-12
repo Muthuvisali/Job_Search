@@ -1,0 +1,11 @@
+{
+  "name": "job-application-master",
+  "version": "0.1.0",
+  "description": "End-to-end job application pipeline. Scrapes jobs with Firecrawl into a Google Sheet, scores your resume against each JD (0-100), tailors a truthful resume for every job scoring 75+ and saves it to Google Drive, then finds recruiters and hiring managers, drafts cold emails with the tailored resume and your portfolio link, and logs LinkedIn connection-request messages to a Google Doc.",
+  "author": {
+    "name": "muthuvisali"
+  },
+  "repository": "https://github.com/muthuvisali/job_search",
+  "license": "MIT",
+  "keywords": ["job-search", "resume", "ats", "outreach", "linkedin", "firecrawl", "google-sheets", "gmail", "career"]
+}

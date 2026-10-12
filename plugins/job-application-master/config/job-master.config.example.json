@@ -1,0 +1,54 @@
+{
+  "candidate": {
+    "name": "Your Name",
+    "email": "you@example.com",
+    "phone": "+1 555 000 0000",
+    "linkedin_url": "https://www.linkedin.com/in/your-handle",
+    "portfolio_url": "https://your-portfolio.site",
+    "work_authorization": "e.g. US citizen / needs H-1B sponsorship / EU work permit"
+  },
+  "master_resume": {
+    "drive_file_id": "GOOGLE_DRIVE_FILE_ID_OF_YOUR_ORIGINAL_RESUME",
+    "local_path": ""
+  },
+  "search": {
+    "target_titles": ["Product Manager", "Senior Product Manager"],
+    "locations": ["Remote", "New York, NY"],
+    "work_modes": ["remote", "hybrid"],
+    "seniority": ["mid", "senior"],
+    "exclude_keywords": ["unpaid", "commission only"],
+    "max_age_days": 7,
+    "max_jobs_per_run": 40,
+    "sources": [
+      "linkedin.com/jobs",
+      "indeed.com",
+      "glassdoor.com",
+      "wellfound.com",
+      "boards.greenhouse.io",
+      "jobs.lever.co",
+      "jobs.ashbyhq.com",
+      "myworkdayjobs.com"
+    ],
+    "career_pages": []
+  },
+  "scoring": {
+    "threshold": 75
+  },
+  "google": {
+    "tracker_sheet_id": "",
+    "tracker_tab": "Jobs",
+    "resumes_folder_id": "",
+    "outreach_doc_id": ""
+  },
+  "outreach": {
+    "email_provider": "gmail",
+    "max_contacts_per_company": 3,
+    "connection_note_max_chars": 200,
+    "signature": "Your Name\nyour-portfolio.site | linkedin.com/in/your-handle"
+  },
+  "scheduling": {
+    "calendar_provider": "google",
+    "calendly_link": "",
+    "timezone": "America/New_York"
+  }
+}

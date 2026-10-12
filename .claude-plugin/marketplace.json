@@ -1,0 +1,16 @@
+{
+  "name": "job-search",
+  "owner": {
+    "name": "muthuvisali"
+  },
+  "metadata": {
+    "description": "Job search plugins: automated job discovery, resume-fit scoring, truthful resume tailoring, and recruiter outreach drafts."
+  },
+  "plugins": [
+    {
+      "name": "job-application-master",
+      "source": "./plugins/job-application-master",
+      "description": "Master job application pipeline: scrape jobs, score resume fit, tailor resumes, and draft recruiter outreach."
+    }
+  ]
+}
